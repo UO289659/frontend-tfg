@@ -1,0 +1,255 @@
+/* Profile.css - Estilos para el componente de perfil profesional */
+@import url('../styles/variables.css');
+/* Header principal con gradiente */
+.gradient-header {
+  background: var(--primary-gradient);
+  border-radius: 20px;
+  color: white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-large);
+}
+
+/* Contenedor del avatar */
+.avatar-container {
+  width: 100px;
+  height: 100px;
+  background: var(--glass-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+/* Badge premium en el avatar */
+.premium-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ffd700;
+  color: #b8860b;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Badge de estado básico */
+.status-badge {
+  background: var(--glass-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Badge de estado premium */
+.premium-status-badge {
+  background: #ffd700;
+  color: #b8860b;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Botón de editar en el header */
+.edit-btn {
+  background: var(--glass-bg);
+  border: none;
+  padding: 12px;
+  border-radius: 15px;
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: var(--glass-border);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Botones con gradiente principal */
+.gradient-btn {
+  background: var(--primary-gradient);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  cursor: pointer;
+}
+
+.gradient-btn:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.gradient-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+/* Cards profesionales */
+.professional-card {
+  background: var(--white-transparent);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  border: none;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.professional-card:hover {
+  box-shadow: var(--shadow-large);
+  transform: translateY(-2px);
+}
+
+/* Headers de sección */
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Iconos de sección */
+.section-icon {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 12px;
+  border-radius: 15px;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+/* Inputs modernos */
+.form-control-modern {
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.form-control-modern:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  outline: none;
+}
+
+.form-control-modern:disabled {
+  background-color: #f5f5f5;
+  color: var(--text-secondary);
+  border-color: #ddd;
+}
+
+/* Contenedor principal */
+.profile-container {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 2rem 0;
+}
+
+/* Loading spinner personalizado */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+/* Animaciones adicionales */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .gradient-header {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .gradient-header .d-flex {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .professional-card {
+    padding: 1.5rem;
+  }
+  
+  .avatar-container {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-container {
+    padding: 1rem 0;
+  }
+  
+  .gradient-header {
+    margin-bottom: 1rem;
+  }
+  
+  .professional-card,
+  .plan-card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Estados hover mejorados */
+.gradient-btn:active,
+.gradient-btn-green:active {
+  transform: translateY(0);
+}
+
+.plan-card:hover .plan-icon {
+  transform: scale(1.1);
+}
+
+/* Mejoras de accesibilidad */
+.gradient-btn:focus-visible,
+.gradient-btn-green:focus-visible,
+.edit-btn:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
+}
+
+/* Estilos para etiquetas de formulario 
+.form-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}*/
+
+/* Espaciado consistente */
+.mb-custom {
+  margin-bottom: 1.5rem !important;
+}
