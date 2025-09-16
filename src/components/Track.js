@@ -612,8 +612,8 @@ useEffect(() => {
   const checkPremiumStatus = () => {
     const token = localStorage.getItem("token");
     if (token) {
+      const decoded = jwtDecode(token);
       try {
-        const decoded = jwtDecode(token);
         // Asumiendo que el token contiene información sobre el estado premium
         setIsPremium(decoded.isPremium || decoded.premium || false);
         setClientId(decoded.userId);
