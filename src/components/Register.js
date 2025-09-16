@@ -5,7 +5,7 @@ import "./Login.css";
 import Footer from "./Footer";
 
 const Register = () => {
-  const GATEWAY_URL = process.env.REACT_APP_API_GATEWAY_URL || 'http://localhost:4000';
+  const GATEWAY_URL = process.env.NEXT_PUBLIC_API_GATEWAY_URL || 'http://localhost:4000';
 
   // 🔍 DEBUG - Agregar logs para ver qué está pasando
   console.log('🔍 Environment DEBUG:');
