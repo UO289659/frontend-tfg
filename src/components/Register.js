@@ -41,6 +41,9 @@ const Register = () => {
     try {
       const res = await axios.post(GATEWAY_URL+"/register", formData);
        localStorage.setItem("token", res.data.token);
+       console.log("Token raw:", token);
+      console.log("Token length:", token?.length);
+      console.log("Token parts:", token?.split('.').length);
       navigate("/select-plan"); 
     } catch (error) {
       setError(error.response?.data?.error || "Hubo un error al registrarse. Inténtalo de nuevo.");
