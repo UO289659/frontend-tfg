@@ -38,7 +38,7 @@ const categories = [
 
 ];
 
-const GATEWAY_URL = process.env.NEXT_PUBLIC_API_GATEWAY_URL || 'http://localhost:4000';
+const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/transactions' || 'http://localhost:4000';
 
 const Track = () => {
   const [data, setData] = useState([]);
@@ -710,7 +710,7 @@ useEffect(() => {
   const fetchFriends = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get(GATEWAY_URL+"/friends", {
+      const res = await axios.get('https://gateway-tfg.azure-api.net/users'+"/friends", {
         headers: { Authorization: `Bearer ${token}` },
       });
      setFriends(res.data);

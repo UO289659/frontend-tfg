@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 
 const ResetPassword = () => {
-  const GATEWAY_URL = process.env.NEXT_PUBLIC_API_GATEWAY_URL || 'http://localhost:4000';
+  const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
   const { token } = useParams(); // Obtener el token de la URL
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

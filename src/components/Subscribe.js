@@ -22,7 +22,7 @@ import { useUserContext } from "../context/UserContext";
 
 // Inicializar Stripe con validación más robusta
 let stripePromise = null;
-const GATEWAY_URL = process.env.NEXT_PUBLIC_API_GATEWAY_URL || 'http://localhost:4000';
+const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
 
 const initializeStripe = () => {
   try {
@@ -152,7 +152,7 @@ const Subscribe = () => {
       const token = localStorage.getItem("token");
       
       // Verificar el pago con el backend
-      const response = await axios.post(GATEWAY_URL+"/verify-payment",
+      const response = await axios.post('https://gateway-tfg.azure-api.net/payments'+"/verify-payment",
         { sessionId },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -204,7 +204,7 @@ const Subscribe = () => {
       }
 
       // Crear sesión de checkout en el backend
-      const response = await axios.post(GATEWAY_URL+"/create-checkout-session",
+      const response = await axios.post('https://gateway-tfg.azure-api.net/payments'+"/create-checkout-session",
         {
           priceId: billingCycle === "monthly" ? monthlyPriceId : yearlyPriceId,
           billingCycle,
