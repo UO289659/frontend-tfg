@@ -26,6 +26,9 @@ jobs:
       - name: npm install, build, and test
         run: |
           echo "REACT_APP_GATEWAY_URL=${{ secrets.REACT_APP_GATEWAY_URL }}" >> .env
+          echo "REACT_APP_STRIPE_PUBLISHABLE_KEY=${{ secrets.REACT_APP_STRIPE_PUBLISHABLE_KEY }}" >> .env
+          echo "REACT_APP_STRIPE_MONTHLY_PRICE_ID=${{ secrets.REACT_APP_STRIPE_MONTHLY_PRICE_ID }}" >> .env
+          echo "REACT_APP_STRIPE_YEARLY_PRICE_ID=${{ secrets.REACT_APP_STRIPE_YEARLY_PRICE_ID }}" >> .env
           npm install
           npm run build --if-present
           npm run test --if-present
@@ -65,3 +68,4 @@ jobs:
           package: .
 
           
+
