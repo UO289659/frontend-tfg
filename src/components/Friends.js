@@ -7,7 +7,8 @@ import Swal from 'sweetalert2';
 import Footer from "./Footer.js";
 
 const FriendsSystem = () => {
-  const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
+  //const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
+  const GATEWAY_URL = process.env.REACT_APP_GATEWAY_URL;
   const [activeTab, setActiveTab] = useState('friends');
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);

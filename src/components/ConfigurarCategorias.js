@@ -8,7 +8,8 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const ConfigurarCategorias = () => {
   //const GATEWAY_URL = "http://localhost:4000"; 
-  const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/transactions' || 'http://localhost:4000'; 
+  //const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/transactions' || 'http://localhost:4000'; 
+  const GATEWAY_URL = process.env.REACT_APP_GATEWAY_URL;
   const [categorias, setCategorias] = useState({ expense: [], income: [] });
   const [nuevoNombre, setNuevoNombre] = useState("");
   const [nuevoTipo, setNuevoTipo] = useState("expense");

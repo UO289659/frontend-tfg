@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Footer from "./Footer.js";
 
 const ForgotPassword = () => {
-  const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
+  //const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
+  const GATEWAY_URL = process.env.REACT_APP_GATEWAY_URL;
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");

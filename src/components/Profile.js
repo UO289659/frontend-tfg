@@ -11,7 +11,8 @@ import { useUserContext} from "../context/UserContext";
 
 
 const Profile = () => {
-  const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
+  //const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
+  const GATEWAY_URL = process.env.REACT_APP_GATEWAY_URL;
   const navigate = useNavigate();
   
   // Usar el contexto de usuario con manejo de errores
@@ -267,7 +268,7 @@ const Profile = () => {
 
       const token = localStorage.getItem("token");
       
-      const response= await axios.post('https://gateway-tfg.azure-api.net/payments'+"/cancel-subscription",
+      const response= await axios.post(GATEWAY_URL+"/cancel-subscription",
         {}, // cuerpo vacío (o null)
         {
           headers: {

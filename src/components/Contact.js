@@ -26,7 +26,8 @@ import toast from 'react-hot-toast';
 import Footer from "./Footer.js";
 
 const Contact = () => {
-  const apiEndpoint = 'https://gateway-tfg.azure-api.net/mail' || 'http://localhost:4000';
+  //const apiEndpoint = 'https://gateway-tfg.azure-api.net/mail' || 'http://localhost:4000';
+  const apiEndpoint = process.env.REACT_APP_GATEWAY_URL;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
