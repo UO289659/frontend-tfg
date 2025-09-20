@@ -1009,7 +1009,7 @@
 /* Responsive para móviles */
 @media (max-width: 768px) {
   .period-date-picker {
-    z-index: 50 !important;
+    z-index: 10 !important;
     flex-direction: column;
     gap: 15px;
     padding: 20px;
