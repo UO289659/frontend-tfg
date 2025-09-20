@@ -42,12 +42,7 @@ const Register = () => {
     try {
       const res = await axios.post(GATEWAY_URL+"/register", formData);
       console.log("llega la respuesta del register", res);
-      // Verificar disponibilidad de localStorage
-     
-        console.log("localStorage no está disponible en este entorno.");
-       
-       localStorage.setItem("token", res.data.token);
-       
+      localStorage.setItem("token", res.data.token); 
       navigate("/select-plan"); 
     } catch (error) {
       console.log("Error en el registro:", error);
