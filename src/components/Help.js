@@ -47,7 +47,7 @@ const faqData = [
     preguntas: [
        {
         pregunta: "¿Dónde puedo añadir mis gastos o ingresos?",
-        respuesta: "1) Accede a la pestaña 'Track', 2) Haz clic en '+ Nueva transacción' 3) Completa los datos requeridos, 4) Guarda los cambios",
+        respuesta: "1) Accede a la pestaña 'Transacciones', 2) Haz clic en '+ Nueva transacción' 3) Completa los datos requeridos, 4) Guarda los cambios",
         tags: ["registrar", "ingreso", "gasto", "transacciones"]
       },
       {
