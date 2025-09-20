@@ -353,40 +353,6 @@ const handleSharedWithChange = (selectedOptions) => {
   console.log("👥 Usuarios compartidos actualizados:", newSharedWith);
 };
 
-const handleRemoveUserFromSharedTransaction = async (transactionId, userIdToRemove) => {
-  const token = localStorage.getItem("token");
-  
-  try {
-    const response = await axios.patch(GATEWAY_URL+`/track/${transactionId}/remove-user`, {
-      userIdToRemove: userIdToRemove
-    }, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-
-    if (response.data.success) {
-      console.log("✅ Usuario eliminado, transacción actualizada:", response.data.transaction);
-      
-      // Actualizar la lista local con la transacción completa del servidor
-      setData(prevTransactions =>
-        prevTransactions.map(t => 
-          t._id === transactionId ? response.data.transaction : t
-        )
-      );
-      
-      // SI EL MODAL DE EDICIÓN ESTÁ ABIERTO PARA ESTA TRANSACCIÓN, ACTUALIZARLO
-      if (editModalOpen && editingTransaction?._id === transactionId) {
-        console.log("🔄 Actualizando modal de edición con datos frescos");
-        setEditingTransaction(response.data.transaction);
-      }
-      
-      toast.success("Usuario eliminado del gasto compartido");
-    }
-  } catch (error) {
-    console.error("Error al eliminar usuario:", error);
-    toast.error("Error al eliminar el usuario del gasto");
-  }
-};
-
 // Función mejorada para recargar datos después de cambios complejos
 const refreshTransactionsData = async () => {
     const token = localStorage.getItem("token");
