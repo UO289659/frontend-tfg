@@ -44,6 +44,7 @@ const Register = () => {
       console.log("llega la respuesta del register", res);
       // Verificar disponibilidad de localStorage
       if (typeof(Storage) === "undefined") {
+        console.log("localStorage no está disponible en este entorno.");
         throw new Error("localStorage no disponible");
       }
        localStorage.setItem("token", res.data.token);
