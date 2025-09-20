@@ -1239,7 +1239,7 @@ const safeTotal = totalAmount > 0 ? totalAmount : 1;
               <div className="transaction-icon">{transaction.icon}</div>
               <div className="transaction-details">
                 <div className="transaction-name">{transaction.name}</div>
-                <div className="transaction-category">{transaction.category.name}</div>
+                <div className="transaction-category">{transaction.categoryName}</div>
               </div>
               <div className={`transaction-amount ${transaction.type}`}>
                 {transaction.type === 'expense' ? '-' : '+'}
