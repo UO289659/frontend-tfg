@@ -39,7 +39,7 @@ const Register = () => {
       setError("La contraseña debe tener al menos 8 caracteres y contener al menos un número.");
       return;
     }
-    try {
+    try { 
       const res = await axios.post(GATEWAY_URL+"/register", formData);
       console.log("llega la respuesta del register", res);
       localStorage.setItem("token", res.data.token); 
