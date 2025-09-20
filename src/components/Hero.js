@@ -75,9 +75,6 @@ const Hero = () => {
           
           {/* Menú desktop */}
           <div className="nav-menu">
-            <a href="#features" className="nav-link">Características</a>
-            <a href="#pricing" className="nav-link">Precios</a>
-            <a href="#about" className="nav-link">Nosotros</a>
             <button className="btn-secondary-nav"  onClick={() => navigate("/login")}>Iniciar Sesión</button>
             <button className="btn-primary-nav" onClick={() => navigate("/register")}>Registrarse</button>
           </div>
@@ -95,9 +92,6 @@ const Hero = () => {
         {/* Menú móvil */}
         {isMenuOpen && (
           <div className="mobile-menu">
-            <a href="#features" className="mobile-nav-link">Características</a>
-            <a href="#pricing" className="mobile-nav-link">Precios</a>
-            <a href="#about" className="mobile-nav-link">Nosotros</a>
             <div className="mobile-buttons">
               <button className="btn-secondary-nav" onClick={() => navigate("/login")}>Iniciar Sesión</button>
               <button className="btn-primary-nav" onClick={() => navigate("/register")}>Registrarse</button>
@@ -123,9 +117,6 @@ const Hero = () => {
             <button className="btn-primary-large" onClick={() => navigate("/login")}>
               Comenzar gratis
               <ArrowRight className="button-icon" />
-            </button>
-            <button className="btn-secondary-large">
-              Ver demo
             </button>
           </div>
 
