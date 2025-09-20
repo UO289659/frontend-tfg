@@ -39,7 +39,7 @@ const Navbar = () => {
          {/* Menú de navegación */}
         <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <a className="nav-link" href="/" >Inicio</a>
-          <a className="nav-link" href="/track" >Transacciones</a>
+          <a className="nav-link" href="/track" >Transacciones</a> 
           <a className="nav-link" href="/profile" >Perfil</a>
           <a className="nav-link" href="/categories" >Categorías</a>
           <a className="nav-link" href="/contact" >Contacto</a>
