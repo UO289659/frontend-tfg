@@ -250,7 +250,7 @@ const validateAndPrepareTransaction = (formData, clientId, friends = []) => {
           if (allHaveAmounts && Math.abs(sumCustomAmounts - newValue) > 0.01) {
             toast.error(
               `La suma de los importes asignados (${sumCustomAmounts.toFixed(2)}€) debe ser exactamente igual al nuevo valor del gasto (${newValue.toFixed(2)}€). ` +
-              `Ajusta los importes personalizados o deja algunos en 0 para que se calculen automáticamente.`
+              `Ajusta los importes personalizados.`
             );
             return null;
           }
