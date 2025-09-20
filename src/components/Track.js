@@ -58,18 +58,10 @@ const Track = () => {
   const [customEndDate, setCustomEndDate] = useState(null);
   const [period, setPeriod] = useState(false);
   const [isPremium, setIsPremium] = useState(false); // Estado para verificar si el usuario es premium
-  
-const [friends, setFriends] = useState([]);
-const [clientId, setClientId] = useState(null);
-
-// Obtener categorías únicas de gastos y de ingresos por separado
-const expenseCategoriesUnique = [...new Set(data.filter(i => i.type === "expense").map(i => i.category.name))];
-const incomeCategoriesUnique = [...new Set(data.filter(i => i.type === "income").map(i => i.category.name))];
-
-const [newEntry, setNewEntry] = useState({
+  const [newEntry, setNewEntry] = useState({
   name: "",
   type: "expense",
-  category: expenseCategories[0] || "",  
+  category: "Comida",  
   value: "",
   icon: "💸",
   sharedWith: [],
@@ -77,6 +69,12 @@ const [newEntry, setNewEntry] = useState({
   customAmounts: {},  // Ejemplo: { friendId1: 10, friendId2: 5 }
 
 });
+const [friends, setFriends] = useState([]);
+const [clientId, setClientId] = useState(null);
+
+// Obtener categorías únicas de gastos y de ingresos por separado
+const expenseCategoriesUnique = [...new Set(data.filter(i => i.type === "expense").map(i => i.category.name))];
+const incomeCategoriesUnique = [...new Set(data.filter(i => i.type === "income").map(i => i.category.name))];
 
 // Total por categoría gastos
 const expenseData = expenseCategoriesUnique.map(cat =>
