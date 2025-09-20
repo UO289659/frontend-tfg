@@ -16,7 +16,7 @@ const TransactionForm = ({
   const [formData, setFormData] = useState({
     name: "",
     type: "expense",
-    category: "comida",
+    category: expenseCategories.length > 0 ? expenseCategories[0].name : "",
     value: "",
     icon: "💸",
     sharedWith: [],
@@ -31,7 +31,7 @@ const TransactionForm = ({
     if (name === "type") {
       const firstCategory = value === "income" 
         ? incomeCategories[0].name|| "" 
-        : expenseCategories[0] || "";
+        : expenseCategories[0].name || "";
 
       setFormData(prev => ({
         ...prev,

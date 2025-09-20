@@ -61,7 +61,7 @@ const Track = () => {
   const [newEntry, setNewEntry] = useState({
   name: "",
   type: "expense",
-  category: "Comida",  
+  category: expenseCategories.length > 0 ? expenseCategories[0].name : "",  
   value: "",
   icon: "💸",
   sharedWith: [],
@@ -900,34 +900,6 @@ const handleSubmit = async (e) => {
 
   } else {
 }
-};
-
-const handleInputChange = (e) => {
-  const { name, value } = e.target;
-
-  if (name === "type") {
-    const firstCategory = value === "income" 
-      ? incomeCategories[0] || "" 
-      : expenseCategories[0] || "";
-
-    setNewEntry((prev) => ({
-      ...prev,
-      type: value,
-      category: firstCategory, // actualizar categoría automáticamente
-      // Limpiar sharedWith si cambia a income o si no es premium
-      sharedWith: (value === "expense" && isPremium) ? prev.sharedWith : [],
-    }));
-  } else {
-    setNewEntry((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  }
-};
-
-const handleModalClose = () => {
-  setModalOpen(false);
-  setNewEntry({ name: "", type: "expense", category:"Comida", value: "", icon: "💸",  sharedWith: [], splitType: "equal", customAmounts: {}});
 };
 
 const handleDeleteTransaction = async (id) => {
