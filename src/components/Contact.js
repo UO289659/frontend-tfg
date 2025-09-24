@@ -229,32 +229,6 @@ const Contact = () => {
               </Link>
             </Box>
           </Box>
-
-          <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
-            <Box
-              sx={{
-                background: 'var(--glass-bg)',
-                borderRadius: '50%',
-                p: 1.5,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                backdropFilter: 'blur(10px)',
-              }}
-            >
-              <MapPinIcon />
-            </Box>
-            <Box>
-              <Typography variant="h6" fontWeight="bold" mb={1}>
-                Dirección
-              </Typography>
-              <Typography sx={{ opacity: 0.9 }}>
-                Calle Principal, 123
-                <br />
-                28001 Madrid, España
-              </Typography>
-            </Box>
-          </Box>
         </Box>
 
         {/* Right form panel */}
