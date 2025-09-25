@@ -29,7 +29,7 @@ const ForgotPassword = () => {
     }
   };
 
-  return (
+  return ( 
     <>
     <div className="form-container">
       <nav className="navbar">
