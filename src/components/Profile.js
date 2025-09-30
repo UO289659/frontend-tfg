@@ -483,8 +483,9 @@ const Profile = () => {
                   </div>
                   
                   <div className="mb-3">
-                    <label className="form-label fw-semibold">Nueva contraseña
+                    <label htmlFor="newPassword" className="form-label fw-semibold">Nueva contraseña </label>
                     <input
+                      id="newPassword"
                       name="newPassword"
                       type="password"
                       className="form-control form-control-modern"
@@ -492,12 +493,13 @@ const Profile = () => {
                       onChange={handlePasswordInputChange}
                       required
                     />
-                    </label>
+                   
                   </div>
                   
                   <div className="mb-4">
-                    <label className="form-label fw-semibold">Confirmar nueva contraseña
+                    <label htmlfor="repeatNewPassword" className="form-label fw-semibold">Confirmar nueva contraseña </label>
                     <input
+                      id="repeatNewPassword"
                       name="repeatNewPassword"
                       type="password"
                       className="form-control form-control-modern"
@@ -505,7 +507,7 @@ const Profile = () => {
                       onChange={handlePasswordInputChange}
                       required
                     />
-                    </label>
+                   
                   </div>
                   
                   <button
