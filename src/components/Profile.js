@@ -470,8 +470,9 @@ const Profile = () => {
 
                 <form onSubmit={handlePasswordChange}>
                   <div className="mb-3">
-                    <label className="form-label fw-semibold">Contraseña actual
+                    <label htmlFor="actualPassword" className="form-label fw-semibold">Contraseña actual</label>
                     <input
+                      id="actualPassword"
                       name="actualPassword"
                       type="password"
                       className="form-control form-control-modern"
@@ -479,7 +480,7 @@ const Profile = () => {
                       onChange={handlePasswordInputChange}
                       required
                     />
-                    </label>
+                    
                   </div>
                   
                   <div className="mb-3">
