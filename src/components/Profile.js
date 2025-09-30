@@ -410,8 +410,9 @@ const Profile = () => {
 
                 <form onSubmit={handleSubmit}>
                   <div className="mb-3">
-                    <label className="form-label fw-semibold">Nombre
+                    <label htmlFor="name" className="form-label fw-semibold">Nombre </label>
                     <input
+                      id="name"
                       name="name"
                       type="text"
                       className="form-control form-control-modern"
@@ -419,12 +420,13 @@ const Profile = () => {
                       onChange={handleChange}
                       required
                     />
-                    </label>
+                   
                   </div>
                   
                   <div className="mb-3">
-                    <label className="form-label fw-semibold">Apellido
+                    <label htmlFor="surname" className="form-label fw-semibold">Apellido  </label>
                     <input
+                      id="surname"
                       name="surname"
                       type="text"
                       className="form-control form-control-modern"
@@ -432,19 +434,20 @@ const Profile = () => {
                       onChange={handleChange}
                       required
                     />
-                    </label>
+                  
                   </div>
                   
                   <div className="mb-4">
-                    <label className="form-label fw-semibold">Email
+                    <label htmlFor="email" className="form-label fw-semibold">Email</label>
                     <input
+                      id="email"
                       name="email"
                       type="email"
                       className="form-control form-control-modern"
                       value={formData.email}
                       disabled={true}
                     />
-                    </label>
+                    
                   </div>
                   
                   <button type="submit" className="btn btn-primary w-100">
@@ -453,6 +456,7 @@ const Profile = () => {
                 </form>
               </div>
             </div>
+             
 
             {/* Password Form */}
             <div className="col-lg-6">
