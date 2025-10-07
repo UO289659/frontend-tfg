@@ -353,7 +353,7 @@ const Subscribe = () => {
                   </div>
                   {billingCycle === "yearly" && (
                     <div className="yearly-note">
-                      Equivale a €8.33/mes
+                      Equivale a 8.33€/mes
                     </div>
                   )}
                 </div>
@@ -438,7 +438,7 @@ const Subscribe = () => {
         
         <div className="summary-item">
           <div className="item-label">Precio del plan:</div>
-          <div className="item-value">€{prices[billingCycle].amount}</div>
+          <div className="item-value">{prices[billingCycle].amount}€</div>
         </div>
         
         {billingCycle === "yearly" && (
@@ -450,7 +450,7 @@ const Subscribe = () => {
         
         <div className="summary-item">
           <div className="item-label">Total a pagar:</div>
-          <div className="item-value">€{prices[billingCycle].amount}</div>
+          <div className="item-value">{prices[billingCycle].amount}€</div>
         </div>
       </div>
 
