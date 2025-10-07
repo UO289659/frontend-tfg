@@ -347,8 +347,8 @@ const Subscribe = () => {
                 {/* Price Display */}
                 <div className="price-display">
                   <div className="price">
-                    <span className="currency">€</span>
                     <span className="amount">{prices[billingCycle].amount}</span>
+                     <span className="currency">€</span>
                     <span className="period">/{billingCycle === "monthly" ? "mes" : "año"}</span>
                   </div>
                   {billingCycle === "yearly" && (
