@@ -76,7 +76,7 @@ const EditTransactionModal = ({
       name: transaction.name,
       type: transaction.type,
       category: transaction.category.name,
-      value: transaction.value || transaction.originalValue  ,
+      value: transaction.originalValue || transaction.value,
       originalValue: transaction.originalValue || transaction.value,
       icon: transaction.icon,
       _id: transaction._id,
