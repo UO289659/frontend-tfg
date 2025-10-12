@@ -239,6 +239,7 @@ const TransactionForm = ({
                     <div>
                       <label>Tú (creador):</label>
                       <input
+                        required
                         type="number"
                         min="0"
                         step="0.01"
@@ -256,6 +257,7 @@ const TransactionForm = ({
                       <div key={friendId}>
                         <label>{friend?.name || "Amigo"}:</label>
                         <input
+                        required
                           type="number"
                           min="0"
                           step="0.01"
