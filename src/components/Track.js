@@ -1057,7 +1057,7 @@ const safeTotal = totalAmount > 0 ? totalAmount : 1;
       {period == true && (
   <div className="period-date-picker">
     <div className="date-input-group">
-      <label>📅 Desde:</label>
+      <label>Desde:</label>
       <div className="date-input-wrapper">
         <DatePicker
           selected={customStartDate}
@@ -1079,7 +1079,7 @@ const safeTotal = totalAmount > 0 ? totalAmount : 1;
     </div>
     
     <div className="date-input-group">
-      <label>📅 Hasta:</label>
+      <label>Hasta:</label>
       <div className="date-input-wrapper">
         <DatePicker
           selected={customEndDate}
@@ -1111,8 +1111,7 @@ const safeTotal = totalAmount > 0 ? totalAmount : 1;
         </>
       ) : (
         <>
-          <span>✨</span>
-          Aplicar Filtro
+          Aplicar filtro
         </>
       )}
     </button>

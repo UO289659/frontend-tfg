@@ -65,7 +65,6 @@ const Login = () => {
           <label>Contraseña</label>
           <div className="password-container">
             <input type="password" name="password" placeholder="Contraseña" onChange={handleChange} required />
-            <span className="eye-icon">👁️</span>
           </div>
 
           <button type="submit" className="btn primary full-width">Iniciar Sesión</button>
