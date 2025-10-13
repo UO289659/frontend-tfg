@@ -102,7 +102,7 @@ const faqData = [
     preguntas: [
       {
         pregunta: "¿Dónde veo mis estadísticas?",
-        respuesta: "Puedes ver tus estadísticas en el panel principal. Aquí encontrarás gráficos de ingresos vs gastos, distribución por categorías y tendencias temporales.",
+        respuesta: "Puedes ver tus estadísticas en el panel principal. Ahí encontrarás gráficos de ingresos vs gastos, distribución por categorías y tendencias temporales.",
         tags: ["estadísticas", "análisis", "gráficos"]
       },
       {
