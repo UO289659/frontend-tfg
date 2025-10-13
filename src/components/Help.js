@@ -363,7 +363,6 @@ export default function ProfessionalHelpPage() {
       backdropFilter: 'blur(10px)',
       border: '1px solid var(--glass-border)',
       borderRadius: '15px',
-      boxShadow: 'var(--shadow-soft)'
     }
   };
 
@@ -532,7 +531,7 @@ export default function ProfessionalHelpPage() {
                   Estamos preparando una serie completa de tutoriales en video para ayudarte a dominar todas las funcionalidades de la aplicación.
                 </Typography>
                 
-                
+                <Alert severity="info" sx={{ ...customStyles.alert, mb: 3 }}>
                   <Typography variant="subtitle1" gutterBottom sx={{ color: 'var(--text-primary)' }}>
                     Próximamente disponibles:
                   </Typography>
@@ -562,7 +561,7 @@ export default function ProfessionalHelpPage() {
                       />
                     </ListItem>
                   </List>
-               
+                </Alert>
               </CardContent>
             </Card>
           </Grid>
