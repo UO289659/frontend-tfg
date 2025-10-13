@@ -989,8 +989,8 @@
   transform: none;
 }
 
-.react-datepicker__today-button {
-  background: var(--primary-gradient);
+.react-datepicker__today-button  {
+  background: var(--primary-gradient) !important;
   color: white;
   border: none;
   padding: 12px;
