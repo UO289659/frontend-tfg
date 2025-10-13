@@ -290,7 +290,7 @@ const FriendsSystem = () => {
             className={`tab-button ${activeTab === 'friends' ? 'active' : ''}`}
           >
             <Users size={18} />
-            Mis Amigos
+            Mis amigos
             <span className="badge">{friends.length}</span>
           </button>
           <button
@@ -315,7 +315,7 @@ const FriendsSystem = () => {
             <div>
               <h2 className="section-title">
                 <Users size={24} />
-                Mis Amigos
+                Mis amigos
               </h2>
               {friends.length === 0 ? (
                 <div className="empty-state">
@@ -449,7 +449,7 @@ const FriendsSystem = () => {
             <div>
               <h2 className="section-title">
                 <Search size={24} />
-                Buscar Nuevos Amigos
+                Buscar nuevos amigos
               </h2>
               
               <div className="search-section">
