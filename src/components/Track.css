@@ -786,7 +786,7 @@
   z-index: 100;
   overflow: visible;
 }
-.period-date-pciker .today-button {
+.react-date-picker__today-button {
   background-color: var(--primary-gradient);
 }
 
