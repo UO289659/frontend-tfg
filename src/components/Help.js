@@ -208,9 +208,9 @@ const guideSteps = [
 ];
 
 const supportInfo = {
-  email: "soporte@financeapp.com",
-  phone: "+1 (555) 123-4567",
-  hours: "Lunes a Viernes, 9:00 AM - 6:00 PM"
+  email: "saldosmart.info@gmail.com",
+  phone: "+34 673 48 14 14",
+  hours: "Lunes a Viernes, 9:00 - 18:00"
 };
 
 // Mover TabPanel fuera del componente principal
@@ -563,10 +563,6 @@ export default function ProfessionalHelpPage() {
                     </ListItem>
                   </List>
                 </Alert>
-
-                <Button variant="contained" size="large" sx={customStyles.button}>
-                  Notificarme cuando estén listos
-                </Button>
               </CardContent>
             </Card>
           </Grid>
