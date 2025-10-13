@@ -136,8 +136,8 @@ const FriendsSystem = () => {
       const users = result.data
         .filter(user => user._id !== currentUserId) // Excluir usuario actual
         .filter(user => 
-          user.name.toLowerCase().includes(term.toLowerCase()) ||
-          user.surname.toLowerCase().includes(term.toLowerCase()) ||
+          user.name.toLowerCase().startsWith(term.toLowerCase()) ||
+          user.surname.toLowerCase().startsWith(term.toLowerCase()) ||
           user.email.split('@')[0].toLowerCase().includes(term.toLowerCase())
         )
         .filter(user => !isAlreadyFriend(user._id)) // Excluir amigos existentes
