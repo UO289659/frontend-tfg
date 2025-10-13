@@ -195,7 +195,6 @@
   border-radius: 1rem;
   padding: 3rem;
   text-align: center;
-  box-shadow: var(--shadow-soft);
   border: 1px solid var(--glass-border);
   margin-bottom: 2rem;
 }
