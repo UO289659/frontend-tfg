@@ -333,37 +333,6 @@ const validateAndPrepareTransaction = (formData, clientId, friends = []) => {
     return transactionData;
   };
 
-// Función para limpiar customAmounts cuando se eliminen usuarios (agregar al EditTransactionModal)
-const handleSharedWithChange = (selectedOptions) => {
-  const newSharedWith = selectedOptions.map(option => option.value);
-  
-  // Si estamos usando split personalizado, limpiar importes de usuarios eliminados
-  if (formData.splitType === "custom") {
-    const newCustomAmounts = { ...formData.customAmounts };
-    
-    // Eliminar importes de usuarios que ya no están seleccionados
-    Object.keys(newCustomAmounts).forEach(friendId => {
-      if (!newSharedWith.includes(friendId)) {
-        delete newCustomAmounts[friendId];
-        console.log(`🗑️ Eliminado importe personalizado del usuario: ${friendId}`);
-      }
-    });
-    
-    setFormData(prev => ({
-      ...prev,
-      sharedWith: newSharedWith,
-      customAmounts: newCustomAmounts
-    }));
-  } else {
-    setFormData(prev => ({
-      ...prev,
-      sharedWith: newSharedWith
-    }));
-  }
-  
-  console.log("👥 Usuarios compartidos actualizados:", newSharedWith);
-};
-
 // Función mejorada para recargar datos después de cambios complejos
 const refreshTransactionsData = async () => {
     const token = localStorage.getItem("token");
@@ -710,10 +679,6 @@ useEffect(() => {
     setBalance((prev) => ({ ...prev, expense: totalExpense, income: totalIncome }));
   }, [data]);
 
-  const handleAddGasto = () => {
-  console.log("Abriendo modal");
-  setModalOpen(true);
-};
 
 
   // 1. Extraer fechas únicas, agrupar datos, preparar lineChartData
@@ -805,79 +770,6 @@ const friendsOptions = friends.map(friend => ({
   label: friend.name
 }));
 
-const handleSubmit = async (e) => {
-  
-
-  if (newEntry._id) {
-    console.log("Editando transacción:", newEntry._id);
-
-    // Preparar datos limpios para la actualización
-    const updateData = {
-      name: newEntry.name,
-      type: newEntry.type,
-      category: newEntry.category,
-      value: newValue,
-      icon: newEntry.icon,
-      sharedWith: newEntry.sharedWith || [],
-      splitType: newEntry.splitType,
-      customAmounts: newEntry.splitType === "custom" ? newEntry.customAmounts : {},
-    };
-
-    try {
-      const response = await axios.put(GATEWAY_URL+`/track/${newEntry._id}`, updateData, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-
-      // Manejar caso especial de conversión a transacción compartida
-      if (response.data.isConverted) {
-        console.log("Transacción convertida a compartida:", response.data.transactions);
-        
-        // Actualizar el estado local removiendo la transacción original
-        setData(prevTransactions => {
-          // Remover la transacción original
-          const filteredTransactions = prevTransactions.filter(t => t._id !== newEntry._id);
-          
-          // Agregar las nuevas transacciones compartidas
-          const newTransactions = response.data.transactions.filter(t => t.clientId === clientId);
-          
-          return [...filteredTransactions, ...newTransactions];
-        });
-        
-        toast.success("Transacción convertida a gasto compartido");
-      } else {
-        console.log("Transacción actualizada:", response.data);
-        
-        // Actualizar la transacción en el estado local
-        setData(prevTransactions =>
-          prevTransactions.map(t => 
-            t._id === newEntry._id ? response.data : t
-          )
-        );
-        
-        toast.success("Transacción actualizada correctamente");
-      }
-
-      // Limpiar el formulario y cerrar modal
-      setNewEntry({
-        name: "",
-        type: "expense",
-        category: "",
-        value: "",
-        icon: "💰",
-        sharedWith: [],
-        splitType: "equal",
-        customAmounts: {}
-      });
-      setModalOpen(false);
-
-    } catch (error) {
-      console.error("Error al actualizar transacción:", error);
-      toast.error("Error al actualizar la transacción");
-    }
-
-  } else {
-}
-};
 
 const handleDeleteTransaction = async (id) => {
   // Opcionalmente, puedes obtener datos de la transacción para mostrar más detalles
