@@ -110,10 +110,11 @@ const TransactionForm = ({
       const amount = parseFloat(inputValue);
       
       if (!isNaN(amount) && amount > 0) {
+        const roundedAmount = Math.round(amount * 100) / 100;
         // Solo guardar si es un número válido y mayor que 0
         setFormData(prev => ({
           ...prev,
-          customAmounts: { ...prev.customAmounts, [participantId]: amount }
+          customAmounts: { ...prev.customAmounts, [participantId]: roundedAmount }
         }));
         
         console.log("✅ Guardando monto válido:", { participantId, amount });
