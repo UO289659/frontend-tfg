@@ -39,6 +39,24 @@ const TransactionForm = ({
         category: firstCategory,
         sharedWith: (value === "expense" && isPremium) ? prev.sharedWith : [],
       }));
+   } else if (name === "value") {
+  // Permitir vacío mientras escribe
+  if (value === "" || value === null) {
+    setFormData(prev => ({
+      ...prev,
+      value: value,
+    }));
+  } else {
+    const floatValue = parseFloat(value);
+    if (!isNaN(floatValue) && floatValue >= 0) {
+      const roundedValue = parseFloat(floatValue.toFixed(2));
+      setFormData(prev => ({
+        ...prev,
+        value: roundedValue,
+      }));
+    }
+  }
+     
     } else {
       setFormData(prev => ({
         ...prev,
