@@ -41,7 +41,6 @@ const ResetPassword = () => {
     <div className="form-container">
       <div className="login-card">
         <h2>Restablecer Contraseña</h2>
-        {error && <div className="alert alert-danger text-center">{error}</div>}
         {message && <div className="alert alert-success text-center">{message}</div>}
 
         <form onSubmit={handleSubmit}>
