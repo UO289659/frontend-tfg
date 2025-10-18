@@ -19,6 +19,12 @@ const ResetPassword = () => {
       setError("Las contraseñas no coinciden.");
       return;
     }
+    const passwordRegex = /^(?=.*\d).{8,}$/; // mínimo 8 caracteres y al menos un número
+
+    if (!passwordRegex.test(password)) {
+      setError("La contraseña debe tener al menos 8 caracteres y contener al menos un número.");
+      return;
+    }
 
     try {
       const res = await axios.post(GATEWAY_URL+`/reset-password/${token}`, {
