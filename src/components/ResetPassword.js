@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Footer from "./Footer";
-
+import toast, { Toaster } from 'react-hot-toast';
 
 const ResetPassword = () => {
   //const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
@@ -10,19 +10,18 @@ const ResetPassword = () => {
   const { token } = useParams(); // Obtener el token de la URL
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setError("Las contraseñas no coinciden.");
+      toast.error("Las contraseñas no coinciden.");
       return;
     }
     const passwordRegex = /^(?=.*\d).{8,}$/; // mínimo 8 caracteres y al menos un número
 
     if (!passwordRegex.test(password)) {
-      setError("La contraseña debe tener al menos 8 caracteres y contener al menos un número.");
+      toast.error("La contraseña debe tener al menos 8 caracteres y contener al menos un número.");
       return;
     }
 
@@ -33,7 +32,7 @@ const ResetPassword = () => {
 
       setMessage(res.data.message);
     } catch (err) {
-      setError(err.response?.data?.error || "Hubo un problema al restablecer la contraseña.");
+      toast.error(err.response?.data?.error || "Hubo un problema al restablecer la contraseña.");
     }
   };
 
