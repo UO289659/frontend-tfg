@@ -278,7 +278,7 @@ const TransactionForm = ({
                         <input
                         required
                           type="number"
-                          min="0"
+                          min="0.01"
                           step="0.01"
                           value={formData.customAmounts[friendId] || ""}
                           onChange={(e) => {
