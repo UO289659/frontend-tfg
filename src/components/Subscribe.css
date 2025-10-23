@@ -688,7 +688,6 @@
   align-items: center;
   justify-content: center;
   display: inline-block; /* Cambiado a inline-block */
-  line-height: 1; /* Elimina espacio extra */
 }
 
 @keyframes spin {
