@@ -143,7 +143,7 @@ const faqData = [
         {
         pregunta: "¿Dónde puedo ver mis solicitudes de amistad?",
         respuesta: "En la pestaña 'Amigos', dentro del apartado 'Solicitudes' verás las solicitudes recibidas y enviadas con su correspondiente estado.",
-        tags: ["premium", "amigos", "añadir"]
+        tags: ["premium", "amigos", "solicitudes"]
       },
        {
         pregunta: "¿Dónde puedo ver mis amigos?",
