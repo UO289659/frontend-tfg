@@ -319,6 +319,7 @@
   cursor: pointer;
   margin-bottom: 1.5rem;
   flex-direction: row; /* Asegura dirección horizontal */
+  white-space: nowrap; /* Evita que el texto se rompa */
 }
 
 .subscribe-btn:hover:not(:disabled) {
