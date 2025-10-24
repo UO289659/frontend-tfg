@@ -4,17 +4,15 @@ import axios from "axios";
 import { loadStripe } from '@stripe/stripe-js';
 import { 
   Crown, 
-  CreditCard, 
   Shield, 
   CheckCircle, 
   ArrowLeft, 
   Lock,
   AlertCircle,
   Loader,
-  Star,
   Zap,
   Users,
-  Download
+
 } from "lucide-react";
 import "./Subscribe.css";
 import Footer from "./Footer";
@@ -477,7 +475,7 @@ const Subscribe = () => {
                 >
                  {loading ? (
                   <>
-                    <span className="spinner"><Loader size={20} /></span>
+                      <Loader className="animate-spin align-middle" size={20} />
                     Creando sesión...
                   </>
                 ) : (
