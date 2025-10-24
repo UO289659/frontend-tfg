@@ -58,17 +58,14 @@ const Hero = () => {
     { value: "24/7", label: "Disponible" }
   ];
 
-  const handleNavigation = (path) => {
-    console.log(`Navegando a: ${path}`);
-    // Aquí iría la lógica de navegación
-  };
+ 
 
   return (
     <div className="my-container">
       {/* Navegación */}
       <nav className="navbar-professional">
         <div className="nav-content">
-          <div className="logo-container-new" onClick={() => handleNavigation('/')}>
+          <div className="logo-container-new" >
             <SaldoSmartLogo size={45} />
             <h1 className="logo-text-new">SaldoSmart</h1>
           </div>
