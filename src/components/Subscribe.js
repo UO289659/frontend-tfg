@@ -475,17 +475,17 @@ const Subscribe = () => {
                   onClick={handleCheckout}
                   disabled={loading || stripeError}
                 >
-                  {loading ? (
-                    <>
-                      <Loader className="spinner" size={20} />
-                      Creando sesión...
-                    </>
-                  ) : (
-                    <>
-                      <Crown size={20} />
-                      Continuar con Stripe Checkout
-                    </>
-                  )}
+                 {loading ? (
+                  <>
+                    <span className="spinner"><Loader size={20} /></span>
+                    Creando sesión...
+                  </>
+                ) : (
+                  <>
+                    <Crown size={20} />
+                    Continuar con Stripe Checkout
+                  </>
+                )}
                 </button>
 
                 {/* Terms */}
