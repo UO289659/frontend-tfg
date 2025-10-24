@@ -318,8 +318,6 @@
   transition: all 0.2s ease;
   cursor: pointer;
   margin-bottom: 1.5rem;
-  flex-direction: row; /* Asegura dirección horizontal */
-  white-space: nowrap; /* Evita que el texto se rompa */
 }
 
 .subscribe-btn:hover:not(:disabled) {
@@ -684,16 +682,6 @@
 }
 
 
-.spinner {
-  animation: spin 1s linear infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-svg {
-  vertical-align: middle;
-}
 
 
 @keyframes spin {
