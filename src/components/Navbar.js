@@ -18,20 +18,12 @@ const Navbar = () => {
     setIsMenuOpen(false); // cierra el menú móvil
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleNavClick = () => {
-    setIsMenuOpen(false); // cierra el menú móvil al hacer clic en un enlace
-  };
-
   console.log('Navbar user:', user);
   
   return (
     <nav className="navbar-professional">
       <div className="nav-content">
-        {/* Logo section - descomentado para mejor estructura */}
+        {/* Logo section */}
         <div className="logo-container-new" onClick={() => navigate('/')}>
           { <SaldoSmartLogo size={45} /> }
           <h1 className="logo-text-new">SaldoSmart</h1>
