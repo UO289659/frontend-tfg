@@ -209,12 +209,6 @@ const Profile = () => {
     }
   };
 
-  const handleUpgrade = () => {
-    navigate("/subscribe");
-  };
-
-  
-
   // Función para mostrar confirmación de cancelación con SweetAlert2
   const handleUnsubscribe = async () => {
     const result = await Swal.fire({
