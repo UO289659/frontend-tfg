@@ -31,7 +31,7 @@ const EditTransactionModal = ({
     let allParticipantIds = [transaction.clientId.toString()];
     let customAmounts = {};
 
-    // 2. CRÍTICO: Verificar qué valor del creador usar
+    // 2. Verificar qué valor del creador usar
     const creatorAmount = transaction.value;
     customAmounts[transaction.clientId.toString()] = creatorAmount;
     
@@ -55,7 +55,6 @@ const EditTransactionModal = ({
           }
           
           if (transaction.splitType === 'custom') {
-            // AQUÍ ESTÁ EL PUNTO CRÍTICO
             if (item.amount !== undefined && item.amount !== null) {
               customAmounts[id] = item.amount;
               console.log(`  ✅ Asignando amount ${item.amount} a ${id}`);
@@ -83,7 +82,7 @@ const EditTransactionModal = ({
       clientId: transaction.clientId,
       sharedWith: sharedWithIds,
       splitType: transaction.splitType || "equal",
-      customAmounts: customAmounts, // ← ESTE ES EL OBJETO CRÍTICO
+      customAmounts: customAmounts, 
       isSharedExpense: sharedWithIds.length > 0
     };
 

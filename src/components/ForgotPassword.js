@@ -22,7 +22,7 @@ const ForgotPassword = () => {
 
     try {
       const res = await axios.post(`${GATEWAY_URL}/forgot-password`, { email });
-      setMessage(res.data.message); // Mensaje de éxito (ej. "Revisa tu correo para restablecer la contraseña.")
+      setMessage(res.data.message); // Mensaje de éxito
       setTimeout(() => navigate("/login"), 5000); // Redirigir al login después de 5 segundos
     } catch (err) {
       setError(err.response?.data?.error || "Hubo un problema con la solicitud.");

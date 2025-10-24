@@ -71,7 +71,7 @@ const ConfigurarCategorias = () => {
     
     setCategorias((prev) => ({
       ...prev,
-      [nuevoTipo]: [...prev[nuevoTipo], nuevaCategoria] // ✅ Ahora guardas el objeto completo
+      [nuevoTipo]: [...prev[nuevoTipo], nuevaCategoria] 
     }));
       
       setNuevoNombre("");
