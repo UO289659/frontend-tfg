@@ -101,7 +101,7 @@ const incomeData = incomeCategoriesUnique.map(cat =>
     .reduce((acc, curr) => acc + Number(curr.value), 0)
 );
 
-// Colores (puedes ajustar o usar más)
+// Colores
 const expenseColors = [
   "#f44336", "#e57373", "#ef9a9a", "#ffcdd2", "#b71c1c"
 ];
@@ -148,7 +148,6 @@ const doughnutData = {
 
 const doughnutOptions = {
   responsive: true,
-  //maintainAspectRatio: false,
   plugins: {
     legend: {
       position: "bottom",
@@ -241,10 +240,8 @@ const validateAndPrepareTransaction = (formData, clientId, friends = []) => {
         sumaImportes: sumCustomAmounts,
         valorTotal: totalValue
       });
-      
-      // Validar la suma
    
-         // CAMBIO CLAVE: Para edición, permitir cambio del valor total
+         //Para edición, permitir cambio del valor total
       // solo validar si hay importes personalizados definidos
       if (formData._id) {
         // Si hay importes personalizados definidos, deben sumar exactamente al NUEVO valor
@@ -266,8 +263,7 @@ const validateAndPrepareTransaction = (formData, clientId, friends = []) => {
             return null;
           }
         }
-        
-        // Si no todos tienen importes definidos, está bien - el backend los calculará
+      
         
       } else {
         // Al crear: suma no debe exceder el total
@@ -772,9 +768,6 @@ const friendsOptions = friends.map(friend => ({
 
 
 const handleDeleteTransaction = async (id) => {
-  // Opcionalmente, puedes obtener datos de la transacción para mostrar más detalles
-  // const transaction = data.find(t => t._id === id);
-  
   const result = await Swal.fire({
     title: '¿Eliminar transacción?',
     text: "Esta acción no se puede deshacer",
@@ -828,7 +821,7 @@ const handleDeleteTransaction = async (id) => {
   } catch (error) {
     console.error("Error al borrar la transacción:", error);
     
-    // Mensaje de error con SweetAlert2
+    // Mensaje de error 
     Swal.fire({
       title: 'Error',
       text: 'No se pudo eliminar la transacción. Inténtalo de nuevo.',

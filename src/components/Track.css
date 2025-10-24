@@ -337,7 +337,7 @@
 /* Modal */
 
 .my-modal-content-wide{
-  max-width: 850px; /* Cambiado de 500px a 700px */
+  max-width: 850px; 
   width: 100%;;
    background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
@@ -347,118 +347,9 @@
     0 25px 50px rgba(0, 0, 0, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
   animation: modalSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-   max-height: 95vh; /* Limita el alto máximo al 85% del viewport */
+   max-height: 95vh; 
   overflow-y: auto; /* Permite scroll interno si es necesario */
 }
-
-/**no se usa
-.modal-backdrop {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background-color: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.custom-modal {
-  background: white;
-  padding: 3vh 3vw;
-  border-radius: 1em;
-  max-width: 70%;
-  width: 70%;
-  box-shadow: var(--shadow-large);
-  z-index: 1001;
-  color: black;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(2rem) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-
-.modal-header h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.close-button {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: var(--text-secondary);
-  cursor: pointer;
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.close-button:hover {
-  background: #f8fafc;
-  color: var(--text-primary);
-}
-
-.modal-form {
-  padding: 2rem;
-}
-**/
-
-/**
-.form-label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.form-input,
-.form-select {
-  width: 100%;
-  padding: 0.875rem 1rem;
-  border: 1px solid var(--glass-border);
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-family: inherit;
-  color: var(--text-primary);
-  background: #ffffff;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.form-input:focus,
-.form-select:focus {
-  outline: none;
-  border-color: var(--purple);
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.form-input::placeholder {
-  color: var(--text-secondary);
-}
-**/
 /* Selector de iconos */
 .icon-picker {
   display: grid;
@@ -492,17 +383,6 @@
   color: white;
   box-shadow: var(--shadow-soft);
 }
-
-/* Acciones del modal 
-
-.modal-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--glass-border);
-}*/
 
 .btn-primary {
   background: var(--purple);
@@ -1035,8 +915,6 @@
   .track-container{
     padding-bottom: 0px;
   }
-
- 
 }
 
 /* Animación suave para la aparición */
@@ -1122,8 +1000,6 @@
   margin-right: 8px;
 }
 
-
-
 /* Efecto hover para los inputs */
 .date-input-wrapper:hover input {
   border-color: rgba(255, 255, 255, 0.5);
@@ -1134,8 +1010,6 @@
 .custom-calendar .react-datepicker__month-container {
   border-radius: 16px;
 }
-
-
 
 /* Efectos de transición suaves */
 .period-date-picker * {
@@ -1215,7 +1089,6 @@
   background: radial-gradient(ellipse, rgba(0,0,0,0.1) 0%, transparent 70%);
   z-index: -1;
 }
-
 
 .upgrade-premium-message{
   padding: 1em; 

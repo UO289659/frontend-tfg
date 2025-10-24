@@ -8,7 +8,6 @@ const Register = () => {
   //const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
   const GATEWAY_URL = process.env.REACT_APP_GATEWAY_URL;
 
-  // 🔍 DEBUG - Agregar logs para ver qué está pasando
   console.log('🔍 Environment DEBUG:');
   console.log('NODE_ENV:', process.env.NODE_ENV);
   console.log('NEXT_PUBLIC_API_GATEWAY_URL:', process.env.REACT_APP_API_GATEWAY_URL);

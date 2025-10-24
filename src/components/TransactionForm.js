@@ -68,7 +68,7 @@ const TransactionForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // 🔧 CORRECCIÓN: Limpiar customAmounts antes de enviar
+    //Limpiar customAmounts antes de enviar
     const cleanedFormData = { ...formData };
     
     if (formData.splitType === 'custom') {
@@ -104,7 +104,7 @@ const TransactionForm = ({
     label: friend.name
   }));
 
-  // 🔧 CORRECCIÓN: Función helper para manejar cambios en customAmounts
+  // Función helper para manejar cambios en customAmounts
   const handleCustomAmountChange = (participantId, inputValue) => {
     console.log(`💰 Cambiando monto para ${participantId}: "${inputValue}"`);
     
