@@ -688,6 +688,7 @@
   align-items: center;
   justify-content: center;
   display: inline-flex; 
+  vertical-align: middle;
 }
 
 @keyframes spin {
