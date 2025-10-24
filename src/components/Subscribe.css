@@ -683,9 +683,8 @@
   transform: none;
 }
 
-.spinner svg,
+
 .spinner {
-  animation: spin 1s linear infinite;
   align-items: center;
   justify-content: center;
   display: flex;
