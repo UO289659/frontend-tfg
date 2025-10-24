@@ -75,36 +75,6 @@ const FriendsSystem = () => {
     setCurrentUserId(id);
   }, []);
 
-  // Función para obtener datos de usuario por ID (con cache)
-  const getUserById = async (userId) => {
-    // Si ya tenemos el usuario en cache, lo devolvemos
-    if (usersCache[userId]) {
-      return usersCache[userId];
-    }
-
-    try {
-      const res = await axios.get(GATEWAY_URL+`/users/${userId}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      
-      // Guardamos en cache
-      setUsersCache(prev => ({
-        ...prev,
-        [userId]: res.data
-      }));
-      
-      return res.data;
-    } catch (error) {
-      console.error("Error al obtener usuario:", error);
-      return {
-        _id: userId,
-        name: "Usuario desconocido",
-        email: "email@desconocido.com",
-        avatar: "👤"
-      };
-    }
-  };
-
    // Función para verificar si un usuario ya es amigo
   const isAlreadyFriend = (userId) => {
     return friends.some(friend => friend._id === userId);
