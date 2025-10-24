@@ -687,7 +687,7 @@
   animation: spin 1s linear infinite;
   align-items: center;
   justify-content: center;
-  display: inline-block; /* Cambiado a inline-block */
+  display: inline-flex; 
 }
 
 @keyframes spin {
