@@ -664,7 +664,7 @@
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 }
 
-.spinner{
+.animate-spin{
   animation: spin 1s linear infinite;
 }
 .checkout-btn:disabled {
