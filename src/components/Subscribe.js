@@ -293,8 +293,8 @@ const Subscribe = () => {
               </div>
             </div>
             <div className="loading-redirect">
-              <Loader className="spinner" size={20} />
-              <span>Redirigiendo a tu perfil...</span>
+              <Loader className="animate-spin align-middle" size={20} />
+              Redirigiendo a tu perfil...
             </div>
           </div>
         </div>
