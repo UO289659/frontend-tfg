@@ -19,7 +19,7 @@ import FriendsSystem from "./components/Friends";
 import { Toaster } from 'react-hot-toast';
 import { SocketProvider, useSocket } from './socket/useSocket';
 import SubscriptionListener from './socket/SubscriptionListener';
-import ProtectedRoute, { PremiumRoute, PublicRoute } from './ProtectedRoute';
+import ProtectedRoute, { PremiumRoute } from './ProtectedRoute';
 
 function AppWrapper() {
   const location = useLocation();
@@ -55,17 +55,13 @@ function AppWrapper() {
           <Route 
             path="/register" 
             element={
-              <PublicRoute>
                 <Register />
-              </PublicRoute>
             } 
           />
           <Route 
             path="/login" 
             element={
-              <PublicRoute>
                 <Login />
-              </PublicRoute>
             } 
           />
           <Route path="/forgot-password" element={<ForgotPassword />} />

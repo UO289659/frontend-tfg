@@ -31,16 +31,4 @@ export const PremiumRoute = ({ children }) => {
   return children;
 };
 
-// Componente para rutas públicas (solo accesibles si NO estás autenticado)
-export const PublicRoute = ({ children }) => {
-  const { user, token } = useUserContext();
-  
-  // Si ya está autenticado, redirigir al track
-  if (token && user) {
-    return <Navigate to="/track" replace />;
-  }
-  
-  return children;
-};
-
 export default ProtectedRoute;
