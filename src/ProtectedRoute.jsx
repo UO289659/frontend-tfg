@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }) => {
   const { user, token, loading } = useUserContext();
 
   if (loading) {
-    return (
+    return ( 
       <div style={{ 
         display: 'flex', 
         justifyContent: 'center', 
