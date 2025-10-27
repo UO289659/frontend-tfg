@@ -25,6 +25,7 @@ export const PremiumRoute = ({ children }) => {
   
   // Verificar si tiene plan premium
   if (!user.isPremium) {
+    console.log('Acceso denegado: usuario sin plan premium.', user.isPremium);
     return <Navigate to="/select-plan" replace />;
   }
   
