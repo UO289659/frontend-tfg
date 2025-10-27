@@ -4,7 +4,7 @@ import { useUserContext } from './context/UserContext';
 
 // Componente para rutas que requieren autenticación
 const ProtectedRoute = ({ children }) => {
-  const { user, token } = useUserContext();
+  const { user, token, loading } = useUserContext();
 
   if (loading) {
     return (
