@@ -5,6 +5,21 @@ import { useUserContext } from './context/UserContext';
 // Componente para rutas que requieren autenticación
 const ProtectedRoute = ({ children }) => {
   const { user, token } = useUserContext();
+
+  if (loading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh',
+        fontSize: '18px',
+        color: '#666'
+      }}>
+        Cargando...
+      </div>
+    );
+  }
   
   // Si no hay token o usuario, redirigir al login
   if (!token || !user) {
@@ -17,7 +32,21 @@ const ProtectedRoute = ({ children }) => {
 // Componente para rutas que requieren suscripción premium
 export const PremiumRoute = ({ children }) => {
   const { user, token } = useUserContext();
-  
+
+  if (loading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh',
+        fontSize: '18px',
+        color: '#666'
+      }}>
+        Cargando...
+      </div>
+    );
+}
   // Primero verificar autenticación
   if (!token || !user) {
     return <Navigate to="/login" replace />;
