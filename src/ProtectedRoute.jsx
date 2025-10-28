@@ -31,7 +31,7 @@ const ProtectedRoute = ({ children }) => {
 
 // Componente para rutas que requieren suscripción premium
 export const PremiumRoute = ({ children }) => {
-  const { user, token } = useUserContext();
+  const { user, token, loading } = useUserContext();
 
   if (loading) {
     return (
