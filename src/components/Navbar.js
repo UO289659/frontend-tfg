@@ -17,8 +17,6 @@ const Navbar = () => {
     navigate('/login');  // redirige al login
     setIsMenuOpen(false); // cierra el menú móvil
   };
-
-  console.log('Navbar user:', user);
   
   return (
     <nav className="navbar-professional">
@@ -30,7 +28,6 @@ const Navbar = () => {
         </div>
          {/* Menú de navegación */}
         <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-          <a className="nav-link" href="/" >Inicio</a>
           <a className="nav-link" href="/track" >Transacciones</a> 
           <a className="nav-link" href="/profile" >Perfil</a>
           <a className="nav-link" href="/categories" >Categorías</a>
