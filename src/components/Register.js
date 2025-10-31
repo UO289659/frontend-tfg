@@ -8,12 +8,6 @@ const Register = () => {
   //const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
   const GATEWAY_URL = process.env.REACT_APP_GATEWAY_URL;
 
-  console.log('🔍 Environment DEBUG:');
-  console.log('NODE_ENV:', process.env.NODE_ENV);
-  console.log('NEXT_PUBLIC_API_GATEWAY_URL:', process.env.REACT_APP_API_GATEWAY_URL);
-  console.log('GATEWAY_URL final:', GATEWAY_URL);
-  console.log('All NEXT_PUBLIC vars:', Object.keys(process.env).filter(key => key.startsWith('REACT_APP')));
-
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nombre: "",
@@ -23,6 +17,7 @@ const Register = () => {
   });
 
   const [error, setError] = useState(""); 
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,22 +26,25 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setIsSubmitting(true);
     const password = formData.password;
     const passwordRegex = /^(?=.*\d).{8,}$/; // mínimo 8 caracteres y al menos un número
-
+    
     if (!passwordRegex.test(password)) {
       setError("La contraseña debe tener al menos 8 caracteres y contener al menos un número.");
       return;
     }
     try { 
       const res = await axios.post(GATEWAY_URL+"/register", formData);
-      console.log("llega la respuesta del register", res);
       localStorage.setItem("token", res.data.token); 
       navigate("/select-plan"); 
     } catch (error) {
-      console.log("Error en el registro:", error);
       setError(error.response?.data?.error || "Hubo un error al registrarse. Inténtalo de nuevo.");
     }
+  };
+
+   const handleBack = () => {
+    navigate(-1); // Vuelve a la página anterior
   };
 
   return (
@@ -77,7 +75,12 @@ const Register = () => {
             <label>Contraseña</label>
             <input type="password"  placeholder="Contraseña" className="form-control" name="password" onChange={handleChange} required />
           </div>
-          <button type="submit" className="btn btn-primary w-100">Registrarse</button>
+         <button type="submit" className="btn btn-primary w-100" disabled={isSubmitting}>
+            {isSubmitting ? "Registrando..." : "Registrarse"}
+          </button>
+          <button type="button" className="btn btn-secondary w-100 mt-3" onClick={handleBack} disabled={isSubmitting}>
+            ← Volver atrás
+          </button>
         </form>
       </div>
     </div>
