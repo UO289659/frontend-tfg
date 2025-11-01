@@ -1,5 +1,6 @@
 @import url('../styles/variables.css'); 
 
+
 /* Fondo con gradiente */
 .form-container {
     text-align: center;
@@ -191,14 +192,16 @@ input::placeholder {
     transform: translateY(0);
 }
 
-.btn .btn.secondary {
+.btn.btn-secondary {
     background: var(--glass-bg);
-    color: white;
-    border: 2px solid var(--glass-border);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
     backdrop-filter: blur(10px);
+    color: var(--text-primary);
+    border-radius: 12px;
+    border: none;
 }
 
-.btn.secondary:hover {
+.btn.btn.btn-secondary:hover {
     background: var(--white-transparent);
     color: var(--text-primary);
     border-color: white;
