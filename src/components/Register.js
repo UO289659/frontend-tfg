@@ -75,8 +75,7 @@ const Register = () => {
             <label>Contraseña</label>
             <input type="password"  placeholder="Contraseña" className="form-control" name="password" onChange={handleChange} required />
           </div>
-         <button type="submit" className="btn btn-primary w-100" disabled={isSubmitting}>
-            {isSubmitting ? "Registrando..." : "Registrarse"}
+         <button type="submit" className="btn btn-primary w-100">
           </button>
           <button type="button" className="btn btn-secondary w-100 mt-3" onClick={handleBack} disabled={isSubmitting}>
             ← Volver atrás

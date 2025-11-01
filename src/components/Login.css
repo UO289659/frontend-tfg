@@ -191,7 +191,7 @@ input::placeholder {
     transform: translateY(0);
 }
 
-.btn.secondary {
+.btn.btn.secondary {
     background: var(--glass-bg);
     color: white;
     border: 2px solid var(--glass-border);

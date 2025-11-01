@@ -16,6 +16,7 @@ const Login = () => {
   });
 
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,6 +25,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setIsSubmitting(true);
 
     try {
       localStorage.removeItem("token");
@@ -31,16 +33,16 @@ const Login = () => {
 
       // Guardar el token en localStorage o sessionStorage
       login(res.data.token); 
-      
-
-      console.log("nuevo token login: "+res.data.token);
 
       // Redirigir a la página de bienvenida
       navigate("/track");
     } catch (error) {
-      console.error("❌ Error al iniciar sesión:", error);
       setError("Correo o contraseña incorrectos.");
     }
+  };
+
+   const handleBack = () => {
+    navigate(-1); // Vuelve a la página anterior
   };
 
   return (
@@ -67,7 +69,10 @@ const Login = () => {
             <input type="password" name="password" placeholder="Contraseña" onChange={handleChange} required />
           </div>
 
-          <button type="submit" className="btn primary full-width">Iniciar Sesión</button>
+          <button type="submit" className="btn primary full-width" >Iniciar Sesión</button>
+          <button type="button" className="btn btn-secondary w-100 mt-3" onClick={handleBack} disabled={isSubmitting}>
+            ← Volver atrás
+          </button>
         </form>
 
         <div className="links">
