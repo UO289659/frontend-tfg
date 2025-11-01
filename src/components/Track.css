@@ -395,18 +395,6 @@
   border-color: #5a67d8;
 }
 
-.btn-secondary {
-  background: #ffffff;
-  color: var(--text-secondary);
-  border-color: var(--glass-border);
-}
-
-.btn-secondary:hover {
-  background: #f8fafc;
-  color: var(--text-primary);
-  border-color: var(--text-secondary);
-}
-
 /* Mensaje de error */
 .error-message {
   background: #fef2f2;
