@@ -971,7 +971,7 @@
 /* Spinner para el botón de carga */
 .spinner {
   display: inline-block;
-  animation: spin 1s linear infinite;
+ 
 }
 
 /* Botón deshabilitado */
