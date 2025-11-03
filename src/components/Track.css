@@ -748,6 +748,10 @@
   margin-bottom: 8px;
 }
 
+.react-datepicker-time__header, .react-datepicker-year-header, .react-datepicker__current-month {
+  color:white;
+}
+
 .react-datepicker__navigation {
   top: 20px;
 }
