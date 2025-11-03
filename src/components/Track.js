@@ -20,11 +20,12 @@ import Swal from 'sweetalert2';
 import { Pencil, Trash2  } from 'lucide-react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Select from 'react-select';
 import CreateTransactionModal from './CreateTransactionModal';
 import EditTransactionModal from './EditTransactionModal';
 import ReactPaginate from 'react-paginate';
 import Footer from "./Footer";
+import "./Track.css";
+
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, PointElement, 
   LineElement,
   TimeScale

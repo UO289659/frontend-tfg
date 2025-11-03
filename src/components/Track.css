@@ -748,7 +748,7 @@
   margin-bottom: 8px;
 }
 
-.react-datepicker-time__header, .react-datepicker-year-header, .react-datepicker__current-month {
+.react-datepicker-time__header, .react-datepicker-year-header,.date-input-wrapper .react-datepicker__current-month {
   color:white;
 }
 
