@@ -69,7 +69,6 @@ const Profile = () => {
           email: response.data.email || "",
         });
       } catch (err) {
-        console.error('Error al cargar datos del usuario:', err);
         setError(err.response?.data?.message || "Error al cargar datos del usuario.");
       } finally {
         setLoading(false);
@@ -91,7 +90,6 @@ const Profile = () => {
     
     try {
       const token = localStorage.getItem("token");
-      console.log("token en profile.js: "+token);
       
       await axios.put(GATEWAY_URL+"/profile", formData, {
         headers: { Authorization: `Bearer ${token}` },
@@ -117,7 +115,6 @@ const Profile = () => {
         },
       });
     } catch (err) {
-      console.error('Error al actualizar perfil:', err);
       // Mostrar toast de error
       toast.error(err.response?.data?.message || "Error al actualizar perfil", {
         duration: 4000,
@@ -190,10 +187,6 @@ const Profile = () => {
         repeatNewPassword: "",
       });
     } catch (err) {
-      console.error('Error al actualizar contraseña:', err);
-  console.log('Status:', err.response?.status);
-  console.log('Data:', err.response?.data);
-  console.log('Message:', err.response?.data?.message);
       toast.error(err.response?.data?.message || "Error al actualizar contraseña", {
         duration: 4000,
         position: 'top-right',
@@ -282,7 +275,6 @@ const Profile = () => {
       });
       
     } catch (error) {
-      console.error('Error al cambiar a plan básico:', error);
       
       // Mostrar error
       await Swal.fire({

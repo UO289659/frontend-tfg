@@ -89,7 +89,6 @@ const ExportTransactions = () => {
       setSnackbarMessage('Error al exportar transacciones');
       setSnackbarSeverity('error');
       setOpenSnackbar(true);
-      console.error(err);
       setLoading(false);
     }
   };

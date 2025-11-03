@@ -24,7 +24,6 @@ const FriendsSystem = () => {
     const token = localStorage.getItem("token");
     setToken(token);
     if (!token) {
-      console.error("No hay token disponible");
       return;
     }
 
@@ -71,7 +70,6 @@ const FriendsSystem = () => {
 
   useEffect(() => {
     const id = localStorage.getItem("userId");
-    console.log("id del usuario autenticado" + id);
     setCurrentUserId(id);
   }, []);
 
@@ -146,7 +144,6 @@ const FriendsSystem = () => {
   // Enviar solicitud de amistad
   const sendFriendRequest = async (userId) => {
     try {
-      console.log('Enviando solicitud a usuario:', userId);
       await axios.post(GATEWAY_URL+"/send-friend-request",
         { senderId: currentUserId, receiverId: userId },
         { headers: { Authorization: `Bearer ${token}` }}
@@ -162,7 +159,6 @@ const FriendsSystem = () => {
       setSearchResults(prev => prev.filter(u => u._id !== userId));
       toast.success('Solicitud enviada correctamente');
     } catch (error) {
-      console.error("❌ Error al enviar solicitud:", error);
       toast.error('Error al enviar solicitud');
     }
   };
@@ -182,7 +178,6 @@ const FriendsSystem = () => {
       
       toast.success('Solicitud aceptada');
     } catch (error) {
-      console.error('Error al aceptar solicitud:', error);
       toast.error('Error al aceptar solicitud');
     }
   };
@@ -197,7 +192,6 @@ const FriendsSystem = () => {
       setFriendRequests(prev => prev.filter(r => r._id !== requestId));
       toast.success('Solicitud rechazada');
     } catch (error) {
-      console.error('Error al rechazar solicitud:', error);
       toast.error('Error al rechazar solicitud');
     }
   };
@@ -234,7 +228,6 @@ const FriendsSystem = () => {
         });
         
       } catch (error) {
-        console.error('Error al eliminar amigo:', error);
         Swal.fire({
           title: 'Error',
           text: 'No se pudo eliminar el amigo. Inténtalo de nuevo.',

@@ -29,7 +29,6 @@ const ConfigurarCategorias = () => {
         });
         setCategorias(res.data);
       } catch (error) {
-        console.error("Error fetching categories:", error);
        toast.error(error.response?.data?.message || "Error al cargar las categorías");
       } finally {
         setInitialLoading(false);
@@ -79,7 +78,6 @@ const ConfigurarCategorias = () => {
       toast.success(`Categoría "${nuevoNombre.trim()}" añadida correctamente`);
       
     } catch (error) {
-      console.error("Error adding category:", error);
       toast.error(error.response?.data?.message || "Error al añadir la categoría");
     } finally {
       setIsLoading(false);
@@ -100,7 +98,6 @@ const ConfigurarCategorias = () => {
       
       toast.success(`Categoría "${name}" eliminada correctamente`);
     } catch (error) {
-      console.error("Error deleting category:", error);
       toast.error(error.response?.data?.message || "Error al eliminar la categoría");
     }
   };
