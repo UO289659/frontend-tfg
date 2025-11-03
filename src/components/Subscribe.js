@@ -29,22 +29,17 @@ const initializeStripe = () => {
     
     // Verificar que la key existe y no es undefined/null/empty
     if (!stripeKey || stripeKey === 'undefined' || stripeKey.trim() === '') {
-      console.error('Stripe publishable key is not defined or empty in environment variables');
-      console.error('Make sure REACT_APP_STRIPE_PUBLISHABLE_KEY is set in your .env file');
       return null;
     }
     
     // Verificar formato de la key
     if (!stripeKey.startsWith('pk_')) {
-      console.error('Invalid Stripe publishable key format. Key should start with "pk_"');
-      console.error('Received key:', stripeKey.substring(0, 10) + '...');
       return null;
     }
     
     // Solo cargar Stripe si la key es válida
     return loadStripe(stripeKey);
   } catch (error) {
-    console.error('Error initializing Stripe:', error);
     return null;
   }
 };
@@ -53,7 +48,6 @@ const initializeStripe = () => {
 try {
   stripePromise = initializeStripe();
 } catch (error) {
-  console.error('Failed to initialize Stripe:', error);
   stripePromise = null;
 }
 
@@ -83,11 +77,6 @@ const Subscribe = () => {
       const stripeKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
       const monthlyPriceId = process.env.REACT_APP_STRIPE_MONTHLY_PRICE_ID;
       const yearlyPriceId = process.env.REACT_APP_STRIPE_YEARLY_PRICE_ID;
-      
-      console.log('Checking Stripe configuration...');
-      console.log('Stripe Key exists:', !!stripeKey);
-      console.log('Monthly Price ID exists:', !!monthlyPriceId);
-      console.log('Yearly Price ID exists:', !!yearlyPriceId);
       
       if (!stripeKey || stripeKey === 'undefined') {
         setStripeError(true);
@@ -233,7 +222,6 @@ const Subscribe = () => {
       }
 
     } catch (err) {
-      console.error('Checkout error:', err);
       setError(err.message || "Error al crear la sesión de pago");
       setLoading(false);
     }

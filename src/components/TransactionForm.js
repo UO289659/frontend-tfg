@@ -89,11 +89,6 @@ const TransactionForm = ({
         validCustomAmounts[friendId] > 0
       );
       
-      console.log("🧹 Datos limpiados antes del submit:", {
-        original: formData.customAmounts,
-        cleaned: validCustomAmounts,
-        sharedWithFiltered: cleanedFormData.sharedWith
-      });
     }
     
     onSubmit(cleanedFormData);
@@ -106,18 +101,12 @@ const TransactionForm = ({
 
   // Función helper para manejar cambios en customAmounts
   const handleCustomAmountChange = (participantId, inputValue) => {
-    console.log(`💰 Cambiando monto para ${participantId}: "${inputValue}"`);
     
     if (inputValue === "" || inputValue === null || inputValue === undefined) {
       // Si el campo está vacío, remover la entrada en lugar de poner 0
       setFormData(prev => {
         const newCustomAmounts = { ...prev.customAmounts };
         delete newCustomAmounts[participantId];
-        
-        console.log("🗑️ Removiendo entrada vacía:", {
-          participantId,
-          newCustomAmounts
-        });
         
         return {
           ...prev,
@@ -135,7 +124,6 @@ const TransactionForm = ({
           customAmounts: { ...prev.customAmounts, [participantId]: roundedAmount }
         }));
         
-        console.log("✅ Guardando monto válido:", { participantId, amount });
       } else {
         console.log("❌ Monto inválido, no se guarda:", { participantId, inputValue, amount });
       }

@@ -190,14 +190,6 @@ const formattedDate = today.toLocaleDateString('es-ES', options);
 
 
 const validateAndPrepareTransaction = (formData, clientId, friends = []) => {
-    console.log("🔍 Iniciando validación con datos:", {
-      name: formData.name,
-      value: formData.value,
-      originalValue: formData.value,
-      _id: formData._id,
-      clientId: formData.clientId,
-      isEditing: !!formData._id
-    });
     
     if (!formData.name || !formData.value || isNaN(formData.value)) {
       toast.error("Por favor, completa el nombre y un valor válido.");
@@ -233,13 +225,6 @@ const validateAndPrepareTransaction = (formData, clientId, friends = []) => {
       } else {
         totalValue = newValue;
       }
-      
-      console.log("🔍 Validación splits personalizados:", {
-        participantes: allParticipants,
-        importesPersonalizados: customAmounts,
-        sumaImportes: sumCustomAmounts,
-        valorTotal: totalValue
-      });
    
          //Para edición, permitir cambio del valor total
       // solo validar si hay importes personalizados definidos
@@ -325,7 +310,6 @@ const validateAndPrepareTransaction = (formData, clientId, friends = []) => {
       }
     }
 
-    console.log("✅ Datos validados para transacción:", transactionData);
     return transactionData;
   };
 
@@ -366,7 +350,6 @@ const refreshTransactionsData = async () => {
       setBalance({ expense: totalExpense, income: totalIncome });
       
     } catch (error) {
-      console.error("Error al recargar datos:", error);
       setError("Error al recargar los datos.");
     } finally {
       setLoading(false);
@@ -384,7 +367,6 @@ const refreshTransactionsData = async () => {
     // Solo puede editar si es el creador original
     return transaction.createdBy === currentUserId ;
   } catch (error) {
-    console.error("Error al verificar permisos:", error);
     return false;
   }
 };
@@ -392,29 +374,17 @@ const refreshTransactionsData = async () => {
 
 
 const handleCreateTransaction = async (formData) => {
-
-   console.log("Category being sent:", formData.category);
-  console.log("Category type:", typeof formData.category);
-  console.log("Category has _id:", formData.category?._id ? "Yes" : "No");
-
-  console.log("transaccion en create: ", formData);
     const token = localStorage.getItem("token");
     const decoded = jwtDecode(token);
     const currentClientId = decoded.userId; 
-
-    console.log("📝 Creando transacción:", formData);
 
     try {
       const newItem = validateAndPrepareTransaction(formData, currentClientId, friends);
       if (!newItem) return;
 
-      console.log("📤 Enviando datos:", newItem);
-
       const response = await axios.post(GATEWAY_URL+"/track", newItem, {
         headers: { Authorization: `Bearer ${token}` }
       });
-
-      console.log("📥 Respuesta del servidor:", response.data);
 
       // Recargar datos actualizados
       await refreshTransactionsData();
@@ -423,7 +393,6 @@ const handleCreateTransaction = async (formData) => {
       toast.success("Transacción creada correctamente");
 
     } catch (error) {
-      console.error("❌ Error al crear transacción:", error);
       
       if (error.response?.data?.error) {
         toast.error(error.response.data.error);
@@ -436,15 +405,13 @@ const handleCreateTransaction = async (formData) => {
   };
 
 
-const handleEditTransaction = async (transaction) => {
-  console.log("✏️ Editando transacción:", transaction);  
+const handleEditTransaction = async (transaction) => {  
   try {
    
     setEditingTransaction(transaction);
     setEditModalOpen(true);
     
   } catch (error) {
-    console.error("❌ Error al obtener datos frescos:", error);
     
     // Fallback: usar los datos locales si falla la consulta al servidor
     const transactionForEdit = {
@@ -454,9 +421,6 @@ const handleEditTransaction = async (transaction) => {
       customAmounts: transaction.customAmounts || {},
       splitType: transaction.splitType || "equal"
     };
-
-    console.log("📋 Usando datos locales como fallback:", transactionForEdit);
-    console.log("💰 CustomAmounts del fallback:", transactionForEdit.customAmounts);
     
     setEditingTransaction(transactionForEdit);
     setEditModalOpen(true);
@@ -467,8 +431,6 @@ const handleUpdateTransaction = async (formData) => {
   const token = localStorage.getItem("token");
   const decoded = jwtDecode(token);
   const currentClientId = decoded.userId;
-
-  console.log("🔄 Actualizando transacción:", formData);
 
   try {
     const updateData = validateAndPrepareTransaction(formData, currentClientId, friends);
@@ -481,12 +443,9 @@ const handleUpdateTransaction = async (formData) => {
       headers: { Authorization: `Bearer ${token}` },
     });
 
-    console.log("📥 Respuesta del servidor:", response.data);
-
     // CLAVE: Actualizar datos locales con información completa del servidor
     if (response.data.isConverted) {
       // Caso: se convirtió a transacción compartida
-      console.log("🔄 Transacción convertida a compartida:", response.data.transactions);
       
       setData(prevTransactions => {
         const filteredTransactions = prevTransactions.filter(t => t._id !== formData._id);
@@ -509,7 +468,6 @@ const handleUpdateTransaction = async (formData) => {
       toast.success("Transacción convertida a gasto individual");
     } else if (response.data.updatedTransactions) {
       // Caso: se actualizaron múltiples transacciones relacionadas
-      console.log("🔄 Múltiples transacciones actualizadas:", response.data.updatedTransactions);
       
       // Actualizar todas las transacciones relacionadas en el estado local
       setData(prevTransactions => {
@@ -539,7 +497,6 @@ const handleUpdateTransaction = async (formData) => {
     setEditingTransaction(null);
 
   } catch (error) {
-    console.error("❌ Error al actualizar transacción:", error);
     
     if (error.response?.data?.message) {
       toast.error(error.response.data.message);
@@ -561,7 +518,6 @@ useEffect(() => {
         setIsPremium(decoded.isPremium || decoded.premium || false);
         setClientId(decoded.userId);
       } catch (error) {
-        console.error("Error al decodificar token:", error);
         setIsPremium( decoded.userId);
       }
     }
@@ -605,8 +561,6 @@ useEffect(() => {
 
 
   useEffect(() => {
-    console.log("useEffect triggered with selectedCategory:", selectedCategory);
-  console.log("Current loading state:", loading);
      setLoading(false);
   setError("");
     if (selectedCategory === "") {
@@ -819,7 +773,6 @@ const handleDeleteTransaction = async (id) => {
     });
     
   } catch (error) {
-    console.error("Error al borrar la transacción:", error);
     
     // Mensaje de error 
     Swal.fire({
@@ -863,7 +816,6 @@ const fetchCustomRangeData = async () => {
 
   const { start, end } = formatDateRange(customStartDate, customEndDate);
   
-  console.log("📅 Enviando fechas:", { start, end });
 
   try {
     setLoading(true);
@@ -872,7 +824,6 @@ const fetchCustomRangeData = async () => {
       params: { start, end },
     });
     
-     console.log("Datos recibidos desde el backend:", res.data);  // Verifica los datos
     setData(res.data);
 
     // Calcular balance
@@ -885,7 +836,6 @@ const fetchCustomRangeData = async () => {
 
     setBalance({ expense: totalExpense, income: totalIncome });
   } catch (error) {
-    console.error("Error al obtener datos personalizados:", error);
     setError("Error al obtener datos personalizados.");
   } finally {
     setLoading(false);
