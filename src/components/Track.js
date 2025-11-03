@@ -794,6 +794,11 @@ const fetchCustomRangeData = async () => {
     return;
   }
 
+  if(customStartDate > customEndDate) {
+    toast.error("La fecha de inicio no puede ser posterior a la fecha final.");
+    return;
+  }
+
   // Evitar llamadas innecesarias si ya estamos cargando
   if (loading) return;
   
