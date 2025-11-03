@@ -734,6 +734,7 @@
 }
 
 .react-datepicker__header {
+  color:white;
   background: var(--primary-gradient);
   border-bottom: none;
   padding: 16px;
