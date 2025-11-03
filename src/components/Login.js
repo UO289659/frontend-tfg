@@ -42,7 +42,7 @@ const Login = () => {
   };
 
    const handleBack = () => {
-    navigate("/track"); 
+    navigate("/"); 
   };
 
   return (

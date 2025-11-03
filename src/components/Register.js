@@ -44,7 +44,7 @@ const Register = () => {
   };
 
    const handleBack = () => {
-    navigate("/track"); 
+    navigate("/"); 
   };
 
   return (
