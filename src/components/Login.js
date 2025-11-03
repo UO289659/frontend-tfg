@@ -42,7 +42,7 @@ const Login = () => {
   };
 
    const handleBack = () => {
-    navigate(-1); // Vuelve a la página anterior
+    navigate("/track"); 
   };
 
   return (
