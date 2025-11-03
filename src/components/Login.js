@@ -38,6 +38,8 @@ const Login = () => {
       navigate("/track");
     } catch (error) {
       setError("Correo o contraseña incorrectos.");
+    }finally{
+      setIsSubmitting(false);
     }
   };
 

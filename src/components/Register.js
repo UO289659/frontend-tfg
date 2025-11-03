@@ -32,6 +32,7 @@ const Register = () => {
     
     if (!passwordRegex.test(password)) {
       setError("La contraseña debe tener al menos 8 caracteres y contener al menos un número.");
+      setIsSubmitting(false);
       return;
     }
     try { 
@@ -40,6 +41,8 @@ const Register = () => {
       navigate("/select-plan"); 
     } catch (error) {
       setError(error.response?.data?.error || "Hubo un error al registrarse. Inténtalo de nuevo.");
+    }finally{
+      setIsSubmitting(false);
     }
   };
 
