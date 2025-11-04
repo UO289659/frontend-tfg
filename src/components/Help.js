@@ -490,8 +490,8 @@ export default function ProfessionalHelpPage() {
       <TabPanel value={tabIndex} index={1}>
         <Grid container spacing={3}>
           {guideSteps.map((step, index) => (
-            <Grid item xs={12} md={6} key={index}>
-              <Card elevation={0} sx={customStyles.card} width="100%">
+            <Grid item xs={12} key={index}>
+              <Card elevation={0} sx={customStyles.card} >
                 <CardContent>
                   <Box display="flex" alignItems="center" mb={2}>
                     <Box mr={2}>{step.icon}</Box>
