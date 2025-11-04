@@ -187,7 +187,7 @@ const formattedDate = today.toLocaleDateString('es-ES', options);
   // Resetear página cuando cambien los datos
   useEffect(() => {
     setCurrentPage(0);
-  }, [data, selectedCategory]);
+  }, [selectedCategory]);
 
 
 const validateAndPrepareTransaction = (formData, clientId, friends = []) => {
@@ -249,8 +249,7 @@ const validateAndPrepareTransaction = (formData, clientId, friends = []) => {
             return null;
           }
         }
-      
-        
+       
       } else {
         // Al crear: suma no debe exceder el total
         if (sumCustomAmounts >= newValue) {
