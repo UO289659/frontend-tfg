@@ -204,7 +204,7 @@ const Contact = () => {
             </Box>
             <Box>
               <Typography variant="h6" fontWeight="bold" mb={1}>
-                Tu email
+                Email
               </Typography>
               <Link
                 href="mailto:saldosmart.info@gmail.com"
@@ -272,7 +272,7 @@ const Contact = () => {
               <Grid item xs={12}>
                 <TextField
                   fullWidth
-                  label="Email"
+                  label="Tu email"
                   type="email"
                   name="email"
                   value={formData.email}
