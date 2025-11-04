@@ -491,7 +491,7 @@ export default function ProfessionalHelpPage() {
         <Grid container spacing={3}>
           {guideSteps.map((step, index) => (
             <Grid item xs={12} md={6} key={index}>
-              <Card elevation={0} sx={customStyles.card}>
+              <Card elevation={0} sx={customStyles.card} width="100%">
                 <CardContent>
                   <Box display="flex" alignItems="center" mb={2}>
                     <Box mr={2}>{step.icon}</Box>
