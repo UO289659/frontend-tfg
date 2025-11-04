@@ -1099,6 +1099,7 @@ const safeTotal = totalAmount > 0 ? totalAmount : 1;
           marginPagesDisplayed={2}
           pageRangeDisplayed={3}
           onPageChange={handlePageClick}
+          forcePage={currentPage}
           containerClassName="pagination"
           activeClassName="active"
           pageClassName="page-item"
