@@ -486,27 +486,33 @@ export default function ProfessionalHelpPage() {
         ))}
       </TabPanel>
 
-      {/* Quick Guide Tab */}
+       {/* Quick Guide Tab */}
       <TabPanel value={tabIndex} index={1}>
-        <Grid container spacing={3}>
+        <Box sx={{ width: '100%' }}>
           {guideSteps.map((step, index) => (
-            <Grid item xs={12} key={index}>
-              <Card elevation={0} sx={customStyles.card} >
-                <CardContent>
-                  <Box display="flex" alignItems="center" mb={2}>
-                    <Box mr={2}>{step.icon}</Box>
-                    <Typography variant="h6" fontWeight="bold" sx={{ color: 'var(--text-primary)' }}>
-                      {index + 1}. {step.title}
-                    </Typography>
-                  </Box>
-                  <Typography sx={{ color: 'var(--text-secondary)' }}>
-                    {step.description}
+            <Card 
+              key={index} 
+              elevation={0} 
+              sx={{ 
+                ...customStyles.card,
+                mb: 3,
+                width: '100%'
+              }}
+            >
+              <CardContent sx={{ p: 3 }}>
+                <Box display="flex" alignItems="center" mb={2}>
+                  <Box mr={2}>{step.icon}</Box>
+                  <Typography variant="h6" fontWeight="bold" sx={{ color: 'var(--text-primary)' }}>
+                    {index + 1}. {step.title}
                   </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+                </Box>
+                <Typography sx={{ color: 'var(--text-secondary)', ml: 5 }}>
+                  {step.description}
+                </Typography>
+              </CardContent>
+            </Card>
           ))}
-        </Grid>
+        </Box>
 
         <Alert severity="success" sx={{ ...customStyles.alert, mt: 4 }}>
           <Typography variant="h6" gutterBottom sx={{ color: 'var(--text-primary)' }}>
