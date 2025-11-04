@@ -204,7 +204,7 @@ const Contact = () => {
             </Box>
             <Box>
               <Typography variant="h6" fontWeight="bold" mb={1}>
-                Email
+                Tu email
               </Typography>
               <Link
                 href="mailto:saldosmart.info@gmail.com"
