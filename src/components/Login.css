@@ -208,7 +208,8 @@ input::placeholder {
     transform: translateY(-1px);
 }
 .btn.btn-secondary:disabled {
-  background-color: #ffffff 
+  background-color: #ffffff;
+  color: var(--text-primary);
 }
 
 
