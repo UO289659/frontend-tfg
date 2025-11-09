@@ -207,6 +207,10 @@ input::placeholder {
     border-color: white;
     transform: translateY(-1px);
 }
+.btn-secondary:disabled {
+  background-color: #ffffff 
+}
+
 
 .btn.full-width {
     width: 100%;
