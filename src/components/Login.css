@@ -207,7 +207,7 @@ input::placeholder {
     border-color: white;
     transform: translateY(-1px);
 }
-.btn-secondary:disabled {
+.btn.btn-secondary:disabled {
   background-color: #ffffff 
 }
 
