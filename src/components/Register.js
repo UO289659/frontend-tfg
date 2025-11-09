@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 import Footer from "./Footer";
+import { useUserContext } from "../context/UserContext";
 
 const Register = () => {
   //const GATEWAY_URL = 'https://gateway-tfg.azure-api.net/users' || 'http://localhost:4000';
   const GATEWAY_URL = process.env.REACT_APP_GATEWAY_URL;
+  const { login } = useUserContext();
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -39,7 +41,7 @@ const Register = () => {
      const res = await axios.post(GATEWAY_URL + "/register", formData);
       
       // Guardar el token de forma síncrona
-      localStorage.setItem("token", res.data.token);
+      login(res.data.token);
       
       // Pequeña pausa para asegurar que localStorage se guarde
       await new Promise(resolve => setTimeout(resolve, 50));
