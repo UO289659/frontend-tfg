@@ -36,9 +36,17 @@ const Register = () => {
       return;
     }
     try { 
-      const res = await axios.post(GATEWAY_URL+"/register", formData).then(res => {
-      localStorage.setItem("token", res.data.token); 
-      navigate("/select-plan", { replace: true });});
+     const res = await axios.post(GATEWAY_URL + "/register", formData);
+      
+      // Guardar el token de forma síncrona
+      localStorage.setItem("token", res.data.token);
+      
+      // Pequeña pausa para asegurar que localStorage se guarde
+      await new Promise(resolve => setTimeout(resolve, 50));
+      
+      // Navegar después de confirmar el guardado
+      navigate("/select-plan", { replace: true });
+
        } catch (error) {
       setError(error.response?.data?.error || "Hubo un error al registrarse. Inténtalo de nuevo.");
     }finally{
