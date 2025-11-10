@@ -844,7 +844,7 @@ const fetchCustomRangeData = async () => {
     setError("Error al obtener datos personalizados.");
   } finally {
     setLoading(false);
-    setSelectedCategory("day");
+    setSelectedCategory("");
   }
 };
 
