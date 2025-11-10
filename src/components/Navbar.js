@@ -64,7 +64,6 @@ const Navbar = () => {
         {/* Menú móvil */}
         {isMenuOpen && (
           <div className="mobile-menu">
-            <a className="mobile-nav-link" href="/" >Inicio</a>
           <a className="mobile-nav-link" href="/track" >Transacciones</a>
           <a className="mobile-nav-link" href="/profile" >Perfil</a>
           <a className="mobile-nav-link" href="/categories" >Categorias</a>
