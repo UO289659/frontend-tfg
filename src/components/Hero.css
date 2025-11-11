@@ -287,6 +287,9 @@
   .hero-content-new {
     gap: 3rem;
   }
+  .chart-section{
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 768px) {
