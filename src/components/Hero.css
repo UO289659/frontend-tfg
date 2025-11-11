@@ -326,6 +326,10 @@
   .chart-container-new {
     padding: 1.5rem;
   }
+
+  .chart-section{
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 480px) {
