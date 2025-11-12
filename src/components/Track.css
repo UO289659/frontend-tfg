@@ -642,7 +642,6 @@
 .period-date-picker {
   display: flex;
   gap: 15px;
-  align-items: center;
   padding: 25px;
   background: var(--primary-gradient);
   border-radius: 16px;
